@@ -1,0 +1,29 @@
+<html lang="en" dir="ltr" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8">
+        <title>Login Form</title>
+        <link rel="stylesheet" href="" th:href="@{/css/login.css}">
+    </head>
+    <body>
+        <div class="bg"></div>
+        <div class="title"><h1>Sign In Form</h1></div>
+        <div class="container">
+            <div class="left"></div>
+            <div class="right">
+                <div class="formBox">
+                    <form class="" action="log/verify" th:action="@{/log/verify}" method="post">
+                        <p>Username</p>
+                        <input type="text" name="username" value="" placeholder="Online">
+                        <p>Password</p>
+                        <input type="password" name="password" value="" placeholder="***********">
+                        <h4 th:text="${msg}" th:if="${not #strings.isEmpty(msg)}" style="color: darkred;"></h4>
+                        <input type="submit" name="" value="Sign In">
+                        <h4 th:text="${notExist}" th:if="${not #strings.isEmpty(notExist)}" style="color: darkred;"></h4>
+                        <a href="registration" th:href="@{/registration}" style="float: left; text-decoration: none;">Register new Account</a>
+                        <a href="#" style="float: right; text-decoration: none;">Forget Password</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

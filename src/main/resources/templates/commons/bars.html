@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="menu">
+    <div class="common" th:fragment="common">
+        <input type="checkbox" id="check" name="" value="">
+        <header>
+            <label for="check">
+                <i class="fas fa-bars" id="sidebar_btn"></i>
+            </label>
+            <div class="left_area">
+                <h3>Coding <span>Snow</span></h3>
+            </div>
+            <div class="right_area">
+                <a href="/log/logout" th:href="@{/log/logout}" class="logout_btn"><i class="fas fa-power-off"></i></a>
+            </div>
+        </header>
+
+        <div class="sidebar">
+            <center>
+                <img src="images/avator.jpg" th:src="@{/images/avator.jpg}" class="profile_image" alt="">
+                <h4 style="text-transform: capitalize;">[[${session.user}]]</h4>
+            </center>
+            <a href="" th:href="@{/info/dashboard}" class="active" th:class="${active=='dashboard'?'active':'a'}"><i class="fas fa-desktop"></i><span>DashBord</span></a>
+            <a href="#"><i class="fas fa-cogs"></i><span>Components<span style="color:red">[No]</span></span></a>
+            <a href="" th:href="@{/info/getClient}" th:class="${active=='client'?'active':'a'}"><i class="fas fa-table"></i><span>Clients Tables</span></a>
+
+            <a href="#"><i class="fas fa-th"></i><span>Forms<span style="color:red">[No]</span></span></a>
+            <a href="#" th:href="@{/about}" th:class="${active=='about'?'active':'a'}"><i class="fas fa-info-circle"></i><span>About</span></a>
+            <a href="#"><i class="fas fa-sliders-h"></i><span>Settings<span style="color:red">[No]</span></span></a>
+        </div>
+        <script th:inline="javascript">
+            // alert([[${active}]]);
+        </script>
+    </div>
+</div>
+</body>
+</html>

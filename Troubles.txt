@@ -1,0 +1,38 @@
+1. 为什么在返回当前页面的 时候, url会叠加起来. 调动handler中的log/verify方法, 返回/login页面的时候, 再次调用则会变为log/log/verify然后报404错误
+
+解决办法: 把html中的form表单的action="log/verify"改为th:action="@{/log/verify}"
+
+2. date转换问题, html传输的date和java后端接收的date格式不统一
+解决办法: 在properties/yml中定义spring.mvc.format.date=yyyy-MM-dd
+
+3. 要修改form表单为delete, put
+解决办法: 在properties/yml中定义spring.mvc.hiddenmethod.filter.enabled=true
+
+4. 
+@GetMapping(value = "/getClient")
+public String getClients(Model model){
+    List<Client> all = clientRepository.findAll();
+    model.addAttribute("clients", all);
+    System.out.println(all);
+    return "client";
+}
+
+@Override
+public void addViewControllers(ViewControllerRegistry registry) {
+    registry.addViewController("/client").setViewName("mainPage/client");
+}
+
+为什么已经定义了viewController, 还是无法跳转到client.
+必须要把return改成 "mainPage/client"才行
+
+原因: 在用thymeleaf的情况下, controller返回的string值, 直接调用thymeleaf下找文件的方法. org.thymeleaf.engine.TemplateManager.resolveTemplate
+
+因为addViewControllers只是把controller里面的handler方法给简化了而已. 实际上就是:
+@RequestMapping("/client")
+public String client(){
+	return "mainPage/client"
+}
+但是用redirect可以直接进入controller里的地址
+
+5. 由于我们是直接跑到mainPage下的client.html. 当前页面的所有url都必须换成th:url/src. 否则本来是要找/image/avator.jpg图片的. 他会自动从当前路径下去寻找图片
+/info/image/avator.jpg

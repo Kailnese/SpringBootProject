@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+	<link rel="stylesheet" href="info.css" th:href="@{/css/about.css}">
+</head>
+<body>
+	<div th:replace="~{commons/bars::common(active='about')}"></div>
+	<div class="content">
+		<div class="clients">
+			<div class="team-section">
+				<div class="inner-width">
+					<h1>Meet Our Team</h1>
+					<div class="pers">
+						<div class="pe">
+							<img src="1.jpg" th:src="@{/images/avator.jpg}" alt="">
+							<div class="p-name">Noah</div>
+							<div class="p-des">Designer</div>
+							<div class="p-sm">
+								<a href="#"><i class="fab fa-facebook"></i></a>
+								<a href="#"><i class="fab fa-twitter"></i></a>
+								<a href="#"><i class="fab fa-instagram"></i></a>
+							</div>
+						</div>
+						<div class="pe">
+							<img src="1.jpg" th:src="@{/images/avator.jpg}" alt="">
+							<div class="p-name">Noah</div>
+							<div class="p-des">Programmer</div>
+							<div class="p-sm">
+								<a href="#"><i class="fab fa-facebook"></i></a>
+								<a href="#"><i class="fab fa-twitter"></i></a>
+								<a href="#"><i class="fab fa-instagram"></i></a>
+							</div>
+						</div>
+						<div class="pe">
+							<img src="1.jpg" th:src="@{/images/avator.jpg}" alt="">
+							<div class="p-name">Noah</div>
+							<div class="p-des">Nobody</div>
+							<div class="p-sm">
+								<a href="#"><i class="fab fa-facebook"></i></a>
+								<a href="#"><i class="fab fa-twitter"></i></a>
+								<a href="#"><i class="fab fa-instagram"></i></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

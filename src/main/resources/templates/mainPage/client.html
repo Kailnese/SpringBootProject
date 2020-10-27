@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <link rel="stylesheet" href="style.css" th:href="@{/css/client.css}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    </head>
+    <body>
+        <div th:replace="~{/commons/bars::common(active='client')}"></div>
+        <div class="content">
+            <div class="clients">
+                <table class="clientInfo">
+                    <tr>
+                        <th>ID</th>
+                        <th>Username</th>
+                        <th>Password</th>
+                        <th>Birthday</th>
+                        <th>Email</th>
+                        <th>age</th>
+                        <th>Gender</th>
+                        <th></th>
+                    </tr>
+                    <tr th:each="client:${clients}">
+                        <td th:text="${client.id}"></td>
+                        <td th:text="${client.username}"></td>
+                        <td th:text="${client.password}"></td>
+                        <td th:text="${client.birthday}"></td>
+                        <td th:text="${client.email}"></td>
+                        <td th:text="${client.age}"></td>
+                        <td th:text="${client.gender}"></td>
+                        <td>
+                            <a class="edit" href="/info/toEdit/" th:href="@{/info/toEdit/}+${client.id}">Eidt</a>
+                            <a class="delete" th:attr="del_uri=@{/info/delete/}+${client.id}">Delete</a>
+                        </td>
+                    </tr>
+                </table>
+                <form id="deleteClient" method="post">
+                    <input type="hidden" name="_method" value="delete"/>
+                </form>
+            </div>
+        </div>
+        <script type="text/javascript" th:src="@{/webjars/jquery/2.1.1/jquery.js}"></script>
+        <script>
+            $(".delete").click(function (){
+                $("#deleteClient").attr("action",$(this).attr("del_uri")).submit();
+                return false;
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="registration.css" th:href="@{/css/registration.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+</head>
+<body>
+<div class="content">
+    <div class="content_box">
+        <div class="regform">
+            <h1>Client Info Edit Form</h1>
+        </div>
+        <div class="main">
+            <form class="" action="/log/registry" th:action="@{/log/registry}" method="post">
+                <div class="" id="name">
+                    <h2 class="name">Username</h2>
+                    <input type="text" name="username" class="firstname" value=""><br>
+                    <!-- <label class="firstlabel">first name</label> -->
+                    <!-- <input type="text" class="lastname" name="last_name" value="">
+                    <label class="lastlabel">last name</label> -->
+                </div>
+                <h2 class="name">Password</h2>
+                <input class="company" type="text" name="password" value="">
+                <h2 class="name">Email</h2>
+                <input class="email" type="text" name="email" value="">
+                <h2 class="name">Age</h2>
+                <input class="code" type="text" name="age" value="">
+                <h2 class="name">Birthday</h2>
+                <input class="number" type="date" name="birthday" value="">
+
+                <h2 id="customer">Gender</h2>
+                <div class="radio">
+                    <input type="radio" name="gender" id="Male" value="male">
+                    <label for="Male">Male</label>
+
+                    <input type="radio" name="gender" id="Female" value="female">
+                    <label for="Female">Female</label>
+                </div>
+                <button type="submit" name="button">Sign In</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
